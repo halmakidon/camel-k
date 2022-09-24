@@ -283,11 +283,13 @@ func TestInstallRegistryFlag(t *testing.T) {
 	_, err := test.ExecuteCommand(rootCmd, cmdInstall,
 		"--registry", "registry",
 		"--organization", "organization",
+		"--ignore-organization",
 		"--registry-insecure",
 		"--registry-secret", "secret")
 	assert.Nil(t, err)
 	assert.Equal(t, "registry", installCmdOptions.registry.Address)
 	assert.Equal(t, "organization", installCmdOptions.registry.Organization)
+	assert.Equal(t, "ignoreOrganization", installCmdOptions.registry.IgnoreOrganization)
 	assert.Equal(t, true, installCmdOptions.registry.Insecure)
 	assert.Equal(t, "secret", installCmdOptions.registry.Secret)
 }

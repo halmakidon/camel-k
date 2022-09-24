@@ -108,7 +108,8 @@ func (t *registryTrait) Apply(e *Environment) error {
 
 func addRegistryAndExtensionToMaven(registryAddress string, build *v1.BuilderTask, platform *v1.IntegrationPlatform) {
 	organization := platform.Status.Build.Registry.Organization
-	if organization == "" {
+	ignoreOrganization := platform.Status.Build.Registry.IgnoreOrganization
+	if !ignoreOrganization && organization == "" {
 		organization = platform.Namespace
 	}
 	registryAddress = fmt.Sprintf("%s/%s", registryAddress, organization)

@@ -641,6 +641,7 @@ func (o *installCmdOptions) decode(cmd *cobra.Command, _ []string) error {
 
 	o.registry.Address = viper.GetString(path + ".registry")
 	o.registry.Organization = viper.GetString(path + ".organization")
+	o.registry.IgnoreOrganization = viper.GetBool(path + ".ignore-organization")
 	o.registry.Secret = viper.GetString(path + ".registry-secret")
 	o.registry.Insecure = viper.GetBool(path + ".registry-insecure")
 	o.registryAuth.Username = viper.GetString(path + ".registry-auth-username")

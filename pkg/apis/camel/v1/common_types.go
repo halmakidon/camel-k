@@ -253,6 +253,8 @@ type RegistrySpec struct {
 	CA string `json:"ca,omitempty"`
 	// the registry organization
 	Organization string `json:"organization,omitempty"`
+	// if the container registry not support organization (ie, private ECR, docker registry)
+	IgnoreOrganization bool `ignoreOrganization, omitempty`
 }
 
 // ValueSource --

@@ -209,7 +209,8 @@ func (t *builderTrait) builderTask(e *Environment) (*v1.BuilderTask, error) {
 
 func getImageName(e *Environment) string {
 	organization := e.Platform.Status.Build.Registry.Organization
-	if organization == "" {
+	ignoreOrganization := e.Platform.Status.Build.Registry.IgnoreOrganization
+	if !ignoreOrganization && organization == "" {
 		organization = e.Platform.Namespace
 	}
 	return e.Platform.Status.Build.Registry.Address + "/" + organization + "/camel-k-" + e.IntegrationKit.Name + ":" + e.IntegrationKit.ResourceVersion
