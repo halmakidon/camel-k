@@ -1241,7 +1241,7 @@ func getArtifactHTTPPath(dependency maven.Dependency, platform *v1.IntegrationPl
 	artifactHTTPPath = strings.ReplaceAll(artifactHTTPPath, ".", "_")
 	organization := platform.Status.Build.Registry.Organization
 	ignoreOrganization := platform.Status.Build.Registry.IgnoreOrganization
-	if !ignoreOrganization && onorganization == "" {
+	if !ignoreOrganization && organization == "" {
 		organization = ns
 	}
 	return fmt.Sprintf("%s/%s", organization, artifactHTTPPath)

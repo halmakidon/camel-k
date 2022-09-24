@@ -289,7 +289,7 @@ func TestInstallRegistryFlag(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, "registry", installCmdOptions.registry.Address)
 	assert.Equal(t, "organization", installCmdOptions.registry.Organization)
-	assert.Equal(t, "ignoreOrganization", installCmdOptions.registry.IgnoreOrganization)
+	assert.Equal(t, true, installCmdOptions.registry.IgnoreOrganization)
 	assert.Equal(t, true, installCmdOptions.registry.Insecure)
 	assert.Equal(t, "secret", installCmdOptions.registry.Secret)
 }

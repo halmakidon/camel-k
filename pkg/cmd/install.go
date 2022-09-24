@@ -93,6 +93,7 @@ func newCmdInstall(rootCmdOptions *RootCmdOptions) (*cobra.Command, *installCmdO
 	cmd.Flags().Bool("force", false, "Force replacement of configuration resources when already present.")
 	cmd.Flags().StringP("output", "o", "", "Output format. One of: json|yaml")
 	cmd.Flags().String("organization", "", "A organization on the Docker registry that can be used to publish images")
+	cmd.Flags().Bool("ignore-organization", false, "Configure the Organization to not be used.")
 	cmd.Flags().String("registry", "", "A Docker registry that can be used to publish images")
 	cmd.Flags().String("registry-secret", "", "A secret used to push/pull images to the Docker registry")
 	cmd.Flags().Bool("registry-insecure", false, "Configure to configure registry access in insecure mode or not")
